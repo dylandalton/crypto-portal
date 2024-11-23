@@ -6,6 +6,7 @@ import { Col, Row, Typography, Select } from 'antd';
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoAPI';
+import LineChart from './LineChart';
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -92,7 +93,7 @@ const CryptoDetails = () => {
           <Row className='coin-desc'>
             <Title level={3} className='coin-details-heading'>
               What is {cryptoDetails?.name}
-              {/* {HTMLReactParser(cryptoDetails?.description)} */}
+              <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name}/>
             </Title>
           </Row>
           <Col className="coin-links">
